@@ -1,14 +1,17 @@
 package linkedLists;
 
+import java.security.SecureRandom;
+
 public class Test 
 {
 	public static void main(String[] args) 
 	{
-/*		ua[0]=new String;
+		// Generates a Cryptographically secure Random number
+		SecureRandom sc = new SecureRandom();
+		for(int i=0;i<5;i++)
+		System.out.println( sc.nextInt(10) );
 		
-		ua[0][1]=" prashar";
-		System.out.println(ua[0][1]);
-*/
+		Thread.currentThread().interrupt();  // what does it do  ??
 	}
 
 }

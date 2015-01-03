@@ -4,7 +4,7 @@ public class q11_FindAndBreakLoop_inaList
 {
 	public static void main(String[] args) 
 	{
-		ListNode<Integer> root= LinkedList.createIntegerList(1, 7);
+		ListNode<Integer> root= LinkedList.createIntegerList(1, 6);
 		createTestLoop(root,2);
 		
 		// returns a random node from within Loop, where slow & fast pointers 1st overlapped
@@ -23,31 +23,25 @@ public class q11_FindAndBreakLoop_inaList
 
 	private static void breakLoopinList(ListNode<Integer> root, ListNode<Integer> loopNode) 
 	{
-		// step1 : find length of Loop
-		// keep 1 point Fixed in loop, and iterate another Point till they reoverlap
+		// step1 : Ln1 is start of list, 
+		//         Ln2 is some node inside the Loop at previous match point
+		//         iterate both by 1 till their Next() meet
 		
-		ListNode<Integer> ln1 = loopNode, 
-						  ln2 = loopNode.getNext();
-		int loopLength=1 ;  // <--
-		while(ln1 != ln2)
+		ListNode<Integer> ln1 = root, 
+						  ln2 = loopNode;
+
+		while(ln1.getNext() != ln2.getNext())
 		{
 			ln2=ln2.getNext();
-			loopLength++;
+			ln1=ln1.getNext();
 		}
 		
-		
-		// step2 : get length of unlooped part of Linked List
-		// iterate 0 - loopLength  = last node of unlooped part
 		ln1 = root;
-		while(loopLength > 0)
-		{
-			ln1 = ln1.getNext();
-			loopLength--;
-		}
-		System.out.println("Last Node after which Loop starts : "+ln1.getData());
+		System.out.println("Last Node that needs to be delinked : "+ln2.getData());
 		
-		// step3: break link
-		ln1.setNext(null);
+		
+		// step2 : Break the link
+		ln2.setNext(null);
 		
 		
 	}
