@@ -2,8 +2,8 @@ package Trees;
 
 public class TreeNode 
 {
-	Integer data;
-	TreeNode leftLink, rightLink;
+	private Integer data;
+	private TreeNode leftLink, rightLink;
 	
 	public Integer getData() 
 	{

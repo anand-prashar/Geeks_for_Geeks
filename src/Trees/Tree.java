@@ -5,14 +5,14 @@ import java.util.Queue;
 
 class Tree 
 {
-/*     			 1
-    		 /      \
-  		   2          3
-		/     \         \
-	  4         5        6
-	/                   /
-   7                   8 
-
+/*										     			 1
+										    		 /      \
+										  		   2          3
+												/     \         \
+											  4         5        6
+											/                   /
+										   7                   8 
+										
 */	
 	static TreeNode getBinaryTree()
 	{
@@ -40,19 +40,31 @@ class Tree
 		Queue<TreeNode> q = new LinkedList<TreeNode>(); // create a q to push level-data
 		TreeNode currentPos;
 		
-		q.add(root);
+		q.add(root);                               // add root to queue 1st
 		
-		while(q.peek() != null)
+		while(q.peek() != null)                    // loop while q has data
 		{
-			currentPos = q.poll();
-			System.out.println(currentPos);
+			currentPos = q.poll();                 // FIFO
+			System.out.print(currentPos + " ");    
 			
-			if(currentPos.getLeftLink()!=null) 
+			if(currentPos.getLeftLink()!=null)     // after printed, push its Left & Right 
 				q.add(currentPos.getLeftLink());
 			
-			if(currentPos.getLeftLink()!=null) 
+			if(currentPos.getRightLink()!=null) 
 				q.add(currentPos.getRightLink());
 		}
+	}
+	
+	static void printTree_DFS_Inorder(TreeNode root)
+	{
+		if(root==null) return;
+		
+		
+		printTree_DFS_Inorder(root.getLeftLink());
+		
+		System.out.print(root + " ");
+		
+		printTree_DFS_Inorder(root.getRightLink());
 	}
 	
 }
