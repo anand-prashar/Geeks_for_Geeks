@@ -35,6 +35,33 @@ class Tree
 		return root;
 	}
 	
+	
+	
+	/*										     			 8
+														 /      \
+														4          12
+													  /  \       /  \
+													 3    5     11   13 
+
+*/	
+static TreeNode getBinarySearchTree()  // create as Up template
+{
+		TreeNode root=null,temp;
+		
+		root = new TreeNode(8); temp = root;
+		temp.setLeftLink(new TreeNode(4));   
+		temp.setRightLink(new TreeNode(12)); 
+		
+		temp=temp.getLeftLink();
+		temp.setLeftLink(new TreeNode(3));  
+		temp.setRightLink(new TreeNode(5));
+		
+		root.getRightLink().setRightLink(new TreeNode(13));
+		root.getRightLink().setLeftLink(new TreeNode(11));
+		
+		return root;
+}
+	
 	static void printTree_BFS_order(TreeNode root)
 	{
 		Queue<TreeNode> q = new LinkedList<TreeNode>(); // create a q to push level-data

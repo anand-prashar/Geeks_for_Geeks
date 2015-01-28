@@ -35,6 +35,18 @@ public class TreeNode
 		return Integer.toString(this.data);
 	}
 	
+	public boolean equals(Object o)
+	{
+		if((o!=null) && (o instanceof TreeNode))
+			if( ( (TreeNode)o).getData().equals(this.getData()))
+				return true;
+			else
+				return false;
+	    else	
+		return false;
+		
+	}
+	
 	TreeNode(Integer d)
 	{
 		this.data = d;
